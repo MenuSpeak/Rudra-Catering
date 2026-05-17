@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>रुद्र कॅटरिंग | Rudra Catering - Premium Maharashtrian Wedding Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --white: #ffffff;
+            --off-white: #fefaf5;
+            --dark-red: #8B1E1E;
+            --deep-burgundy: #6a1b1a;
+            --gold: #D4AF37;
+            --light-gold: #f3e5ab;
+            --shadow-sm: 0 8px 20px rgba(0,0,0,0.05);
+            --shadow-md: 0 12px 28px rgba(0,0,0,0.08);
+            --border-radius-card: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background: var(--off-white);
+            font-family: 'Inter', 'Poppins', sans-serif;
+            color: #2c2c2c;
+            scroll-behavior: smooth;
+        }
+
+        .gold-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), #f5d76e);
+            margin: 12px auto 20px;
+            border-radius: 3px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-red);
+            position: relative;
+            display: inline-block;
+        }
+        .section-title span {
+            color: var(--gold);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, rgba(255,255,245,0.96), rgba(255,250,235,0.98)), url('https://images.pexels.com/photos/67468/indian-food-platter-thali-served-67468.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center/cover;
+            background-blend-mode: overlay;
+            padding: 2rem 1.5rem 3rem;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+        }
+        .rudra-logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #8B1E1E, #B86B2C);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #5a2e1c;
+            margin: 8px 0;
+            font-weight: 500;
+        }
+        .tagline marathi-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark-red);
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 28px 0 20px;
+            flex-wrap: wrap;
+        }
+        .btn-wa, .btn-call {
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-wa {
+            background: #25D366;
+            color: white;
+        }
+        .btn-call {
+            background: var(--dark-red);
+            color: white;
+        }
+        .btn-wa:hover, .btn-call:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        /* Sticky Category Nav */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+            padding: 12px 16px;
+            background: rgba(255,255,245,0.98);
+            border-bottom: 1px solid rgba(212,175,55,0.3);
+        }
+        .categories-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 12px;
+            scrollbar-width: thin;
+            padding-bottom: 6px;
+        }
+        .categories-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+        .cat-btn {
+            background: transparent;
+            border: 1px solid #e2cfaa;
+            padding: 8px 18px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            color: #4a2a1a;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .cat-btn i {
+            margin-right: 6px;
+            color: var(--gold);
+        }
+        .cat-btn.active {
+            background: var(--dark-red);
+            border-color: var(--dark-red);
+            color: white;
+        }
+        .cat-btn.active i {
+            color: white;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 20px 40px;
+        }
+        .menu-section {
+            margin-bottom: 48px;
+            scroll-margin-top: 90px;
+        }
+        .menu-section h2 {
+            font-size: 1.9rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            border-left: 5px solid var(--gold);
+            padding-left: 18px;
+            margin-bottom: 24px;
+            color: var(--deep-burgundy);
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+        .menu-card {
+            background: white;
+            border-radius: var(--border-radius-card);
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid #f3e5cd;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(212,175,55,0.6);
+        }
+        .menu-img {
+            width: 100%;
+            height: 220px;
+            border-radius: 18px;
+            object-fit: cover;
+            background: #faf3e0;
+            border: 1px solid #f0e0c0;
+        }
+        .card-content {
+            flex: 1;
+        }
+        .dish-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .dish-name span:first-child {
+            font-family: 'Playfair Display', serif;
+        }
+        .dish-desc {
+            font-size: 0.8rem;
+            color: #6f6f6f;
+            margin-top: 5px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .veg-badge, .nonveg-badge {
+            font-size: 0.7rem;
+            background: #eaf7ea;
+            padding: 2px 10px;
+            border-radius: 20px;
+            color: #2b6e2b;
+        }
+
+        .gallery-section, .reviews-section, .inquiry-section {
+            margin: 60px 0 40px;
+        }
+        .gallery-grid {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 8px 4px 20px;
+        }
+        .gallery-grid img {
+            width: 220px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        .review-card {
+            background: white;
+            padding: 20px;
+            border-radius: 28px;
+            box-shadow: var(--shadow-sm);
+            border-left: 5px solid var(--gold);
+            min-width: 260px;
+        }
+        .inquiry-form input, .inquiry-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 8px 0;
+            border-radius: 30px;
+            border: 1px solid #e6d5b8;
+            background: white;
+        }
+        .inquiry-form button {
+            background: var(--dark-red);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        footer {
+            background: #1e1b16;
+            color: #e4d5b0;
+            padding: 32px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .floating-wa {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: #25D366;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+            z-index: 99;
+        }
+        .floating-wa a {
+            color: white;
+            font-size: 28px;
+        }
+        @media (max-width: 640px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero .rudra-logo h1 {
+                font-size: 2.2rem;
+            }
+            .menu-img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating-wa">
+    <a href="https://wa.me/919372092960?text=नमस्कार,%20Rudra%20Catering%20मेन्यू%20बघितला,%20ऑर्डर%20किंवा%20बुकिंग%20करायची%20इच्छा%20आहे." target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<div class="hero">
+    <div class="rudra-logo">
+        <h1>रुद्र कॅटरिंग</h1>
+        <h1 style="font-size:1.6rem; letter-spacing:2px;">RUDRA CATERING</h1>
+    </div>
+    <div class="tagline">
+        <marathi-text>✨ स्वाद परंपरेचा... विश्वास गुणवत्तेचा ✨</marathi-text>
+    </div>
+    <div class="hero-buttons">
+        <a href="https://wa.me/919372092960?text=हळदी/लग्न%20जेवण%20बुकिंग%20बद्दल%20माहिती%20हवी." class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Order</a>
+        <a href="tel:+919372092960" class="btn-call"><i class="fas fa-phone-alt"></i> Call Now</a>
+    </div>
+</div>
+
+<div class="sticky-nav">
+    <div class="categories-scroll" id="categoryTabs"></div>
+</div>
+
+<div class="container">
+    <div id="menuContainer"></div>
+
+    <div class="gallery-section">
+        <div style="text-align:center;"><span class="section-title">आमची <span>गॅलरी</span></span><div class="gold-divider"></div></div>
+        <div class="gallery-grid">
+            <img src="https://images.pexels.com/photos/1279330/indian-thali-1279330.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Catering Thali">
+            <img src="https://images.pexels.com/photos/1624487/indian-food-meal-dinner-1624487.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Wedding Spread">
+            <img src="https://images.pexels.com/photos/6287760/marathi-cuisine-puran-poli-6287760.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Maharashtrian sweets">
+            <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Catering setup">
+        </div>
+    </div>
+
+    <div class="reviews-section">
+        <div style="text-align:center;"><span class="section-title">ग्राहक <span>प्रतिसाद</span></span><div class="gold-divider"></div></div>
+        <div style="display:flex; gap:20px; overflow-x:auto; padding: 10px 0;">
+            <div class="review-card"><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star"></i><p>"अप्रतिम मेन्यू! हळदीच्या जेवणात खूप वैविध्य."</p><b>- श्री. पाटील</b></div>
+            <div class="review-card"><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star"></i><p>"लग्नात रुद्र कॅटरिंग मस्त अनुभव, स्वादिष्ट भात-वरण."</p><b>- सौ. जोशी</b></div>
+            <div class="review-card"><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star"></i><p>"पुरी, सुकी भाजी आणि गुलाबजाम खास."</p><b>- कुलकर्णी फॅमिली</b></div>
+        </div>
+    </div>
+
+    <div class="inquiry-section">
+        <div style="text-align:center;"><span class="section-title">बुकिंग <span>किंवा विचारा</span></span><div class="gold-divider"></div></div>
+        <div class="inquiry-form" style="max-width:600px; margin:0 auto; background:#fff9ef; padding:25px; border-radius:40px;">
+            <input type="text" placeholder="आपले नाव / Name" id="inqName">
+            <input type="tel" placeholder="मोबाईल नंबर" id="inqMobile">
+            <textarea rows="3" placeholder="तुमचा संदेश (मेन्यू किंवा इव्हेंट तपशील)" id="inqMsg"></textarea>
+            <button id="sendInquiry"><i class="fab fa-whatsapp"></i> WhatsApp वर पाठवा</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p><strong>रुद्र कॅटरिंग</strong> | स्वाद परंपरेचा विश्वास</p>
+    <p><i class="fas fa-map-marker-alt"></i> पुणे - सातारा रोड, महाराष्ट्र</p>
+    <p>📞 +91 93720 92960 &nbsp;|&nbsp; ✉️ rudracatering@gmail.com</p>
+    <p style="margin-top:12px;">© 2026 Premium Wedding & Event Catering</p>
+</footer>
+
+<script>
+    // ALL MENU ITEMS - PRICES REMOVED, ONLY NAME, DESCRIPTION, IMAGE
+    const menuData = {
+        "हळदीचे जेवण": [
+            { name: "रवा शिरा (पायनॅपल)", desc: "शिरा अननस फ्लेवर", img: "img/rava-shira.jpg", type: "Veg" },
+            { name: "नीलेबी (एक)", desc: "गोड जिलेबी सोनेरी", img: "img/nilebi.jpg", type: "Veg" },
+            { name: "साधा भात + साधे वरण", desc: "चिकन बियाण्यांसह", img: "img/sadha-bhat-varan.jpg", type: "Veg" },
+            { name: "वांगे+बटाटा भाजी", desc: "ओलिची भाजी", img: "img/wange-batata-bhaji.jpg", type: "Veg" },
+            { name: "मिक्स उसळ", desc: "प्रथिने समृद्ध", img: "img/mix-usaL.jpg", type: "Veg" },
+            { name: "शेव कांदा", desc: "कुरकुरीत शेव", img: "img/shev-kanda.jpg", type: "Veg" },
+            { name: "चपाती / पुरी", desc: "गरम गरम", img: "img/chapati-puri.jpg", type: "Veg" },
+            { name: "रस्सा चवळी", desc: "चवळी मसाला", img: "img/rassa-chawali.jpg", type: "Veg" }
+        ],
+        "लग्नाचे जेवण": [
+            { name: "साधा भात + निरा राईस", desc: "सुगंधी तांदूळ", img: "img/sadha-bhat-nira-rice.jpg", type: "Veg" },
+            { name: "दाल तडका", desc: "घरगुती डाळ", img: "img/dal-tadka.jpg", type: "Veg" },
+            { name: "आलू मटर", desc: "रस्सेदार", img: "img/aloo-matar.jpg", type: "Veg" },
+            { name: "बटाटा चना मसाला", desc: "मसालेदार", img: "img/batata-chana-masala.jpg", type: "Veg" },
+            { name: "वांगे मसाला रस्सा", desc: "प्रसिद्ध अहिराणी", img: "img/wange-masala-rassa.jpg", type: "Veg" },
+            { name: "काबुली चना मसाला", desc: "श्रीमंत", img: "img/kabuli-chana-masala.jpg", type: "Veg" },
+            { name: "आळू पालक भाजी", desc: "पौष्टिक", img: "img/aalu-palak-bhaji.jpg", type: "Veg" },
+            { name: "उसळ रस्सा + चवळी मसाला", desc: "फ्लॉकर वटाणा", img: "img/usaL-rassa-chawali.jpg", type: "Veg" }
+        ],
+        "स्वीट": [
+            { name: "गुलाबजाम", desc: "मऊ गरम सिरपी", img: "img/gulab-jamun.jpg", type: "Veg" },
+            { name: "मोहन थाळ", desc: "बेसनची मिठाई", img: "img/mohan-thal.jpg", type: "Veg" },
+            { name: "राजाराणी पायनॅपल शिरा", desc: "विशेष शिरा", img: "img/rajarani-pineapple-shira.jpg", type: "Veg" },
+            { name: "बालुशाही", desc: "गोड पुरी", img: "img/balushahi.jpg", type: "Veg" },
+            { name: "खोबरा बर्फी", desc: "नारळ बर्फी", img: "img/kobara-barfi.jpg", type: "Veg" },
+            { name: "मॅंगो बर्फी", desc: "आंबा फ्लेवर", img: "img/mango-barfi.jpg", type: "Veg" },
+            { name: "मुंगदाळ शिरा", desc: "मूंग दाल शिरा", img: "img/mungdal-shira.jpg", type: "Veg" },
+            { name: "सोनपावडी", desc: "कुरकुरीत मिठाई", img: "img/sonpavadi.jpg", type: "Veg" }
+        ],
+        "भात": [
+            { name: "साधा भात", desc: "शुद्ध तांदूळ", img: "img/sadha-bhat.jpg", type: "Veg" },
+            { name: "निरा राईस (मसाला भात)", desc: "पारंपारिक", img: "img/nira-rice.jpg", type: "Veg" },
+            { name: "मसाला भात", desc: "लग्नसर", img: "img/masala-bhat.jpg", type: "Veg" }
+        ],
+        "वरण": [
+            { name: "दाल तडका", desc: "जिरे-लसूण तडका", img: "img/dal-tadka.jpg", type: "Veg" },
+            { name: "साधे वरण", desc: "महाराष्ट्रीयन वरण", img: "img/sadhe-varan.jpg", type: "Veg" }
+        ],
+        "भाजी रस्सा": [
+            { name: "आलू मटर रस्सा", desc: "मसालेदार", img: "img/aloo-matar-rassa.jpg", type: "Veg" },
+            { name: "बटाटा चना मसाला रस्सा", desc: "खमंग", img: "img/batata-chana-masala.jpg", type: "Veg" },
+            { name: "काबुली चना मसाला", desc: "श्रीमंत", img: "img/kabuli-chana-masala.jpg", type: "Veg" },
+            { name: "आलू पालक रस्सा", desc: "पालकी", img: "img/aalu-palak-bhaji.jpg", type: "Veg" },
+            { name: "चवळी मसाला फ्लॉकर + वटाणा", desc: "स्पेशल मिक्स", img: "img/chawali-masala-flocker.jpg", type: "Veg" },
+            { name: "उसळ रस्सा", desc: "मटकी उसळ", img: "img/usaL-rassa.jpg", type: "Veg" }
+        ],
+        "सुकी भाजी": [
+            { name: "मिक्स व्हेज सुकी", desc: "कोरडी भाजी", img: "img/mix-veg-sukhi.jpg", type: "Veg" },
+            { name: "भेंडी मसाला", desc: "कुरकुरीत", img: "img/bhendi-masala.jpg", type: "Veg" },
+            { name: "भेंडी + बटाटा", desc: "मिक्स भेंडी", img: "img/bhendi-batata.jpg", type: "Veg" },
+            { name: "चना दाल + कोबी", desc: "कोबी वाटाणा", img: "img/chana-dal-cabbage.jpg", type: "Veg" },
+            { name: "शिमला + बटाटा", desc: "रंगीत भाजी", img: "img/shimla-batata.jpg", type: "Veg" },
+            { name: "निरा बटाटा", desc: "घरगुती", img: "img/nira-batata.jpg", type: "Veg" },
+            { name: "उसळ सुकी", desc: "प्रोटीनयुक्त", img: "img/usaL-sukhi.jpg", type: "Veg" }
+        ],
+        "पुरी": [
+            { name: "साधी पुरी", desc: "गोल फुगीर", img: "img/sadhi-puri.jpg", type: "Veg" },
+            { name: "पालक मसाला पुरी", desc: "पालक भरलेली", img: "img/palak-masala-puri.jpg", type: "Veg" },
+            { name: "इंदौरी पुरी", desc: "पारंपरिक मसाला पुरी", img: "img/indori-puri.jpg", type: "Veg" }
+        ],
+        "इतर": [
+            { name: "लाल तेचा", desc: "तीखी लाल चटणी", img: "img/lal-thecha.jpg", type: "Veg" },
+            { name: "हिरवा तेचा", desc: "हिरवी मिरची ठेचा", img: "img/hirwa-thecha.jpg", type: "Veg" },
+            { name: "सलाड / कोशिंबीर", desc: "ताजी भाजीपाला", img: "img/salad-koshimbir.jpg", type: "Veg" }
+        ],
+        "नाश्ता": [
+            { name: "पोहे", desc: "लिम्बू पोहे", img: "img/pohe.jpg", type: "Veg" },
+            { name: "उपमा", desc: "रवा उपमा", img: "img/upma.jpg", type: "Veg" },
+            { name: "चहा", desc: "गरम मसाला चहा", img: "img/tea-chaha.jpg", type: "Veg" }
+        ]
+    };
+
+    const categories = Object.keys(menuData);
+    const tabsContainer = document.getElementById("categoryTabs");
+    const menuContainerDiv = document.getElementById("menuContainer");
+
+    function renderCategoryButtons() {
+        tabsContainer.innerHTML = '';
+        categories.forEach((cat, idx) => {
+            const btn = document.createElement('button');
+            btn.className = `cat-btn ${idx === 0 ? 'active' : ''}`;
+            btn.innerHTML = `<i class="fas fa-utensils"></i> ${cat}`;
+            btn.setAttribute('data-cat', cat);
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const target = document.getElementById(`section-${cat}`);
+                if(target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+            tabsContainer.appendChild(btn);
+        });
+    }
+
+    function buildFullMenu() {
+        let html = '';
+        for(let cat of categories) {
+            const items = menuData[cat];
+            html += `<div class="menu-section" id="section-${cat}">`;
+            html += `<h2><i class="fas fa-leaf" style="color:var(--gold); margin-right:8px;"></i> ${cat}</h2>`;
+            html += `<div class="menu-grid">`;
+            items.forEach(item => {
+                html += `
+                    <div class="menu-card">
+                        <img class="menu-img" src="${item.img}" alt="${item.name}" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 200 200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%23f3e5cd%22/%3E%3Ctext x=%22100%22 y=%22120%22 font-size=%2280%22 text-anchor=%22middle%22 fill=%22%23b8860b%22%3E🍽️%3C/text%3E%3C/svg%3E';">
+                        <div class="card-content">
+                            <div class="dish-name">
+                                <span>${item.name}</span>
+                            </div>
+                            <div class="dish-desc">
+                                <span>${item.desc}</span>
+                                <span class="veg-badge">${item.type}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div></div>`;
+        }
+        menuContainerDiv.innerHTML = html;
+    }
+
+    document.getElementById("sendInquiry")?.addEventListener("click", () => {
+        const name = document.getElementById("inqName").value;
+        const mobile = document.getElementById("inqMobile").value;
+        const msg = document.getElementById("inqMsg").value;
+        if(!name || !mobile) {
+            alert("कृपया नाव आणि मोबाईल नंबर भरा");
+            return;
+        }
+        const text = `नमस्कार Rudra Catering,\nबुकिंग/इन्क्वायरी:\nनाव: ${name}\nमोबाईल: ${mobile}\nसंदेश: ${msg}`;
+        window.open(`https://wa.me/919372092960?text=${encodeURIComponent(text)}`, "_blank");
+    });
+
+    renderCategoryButtons();
+    buildFullMenu();
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const activeSection = entry.target.id.replace('section-', '');
+                document.querySelectorAll('.cat-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-cat') === activeSection);
+                });
+            }
+        });
+    }, { threshold: 0.4, rootMargin: "-70px 0px -30px 0px" });
+
+    setTimeout(() => {
+        document.querySelectorAll('.menu-section').forEach(section => observer.observe(section));
+    }, 200);
+</script>
+</body>
+</html>
