@@ -15,29 +15,30 @@
         }
 
         :root {
-            --white: #ffffff;
-            --off-white: #fefaf5;
-            --dark-red: #8B1E1E;
-            --deep-burgundy: #6a1b1a;
+            --dark-bg: #0a0806;
+            --dark-surface: #1a1612;
+            --pure-white: #ffffff;
+            --off-white: #fef8f0;
             --gold: #D4AF37;
-            --light-gold: #f3e5ab;
-            --shadow-sm: 0 8px 20px rgba(0,0,0,0.05);
-            --shadow-md: 0 12px 28px rgba(0,0,0,0.08);
-            --border-radius-card: 20px;
+            --dark-gold: #B8960C;
+            --light-gold: #f5e2a1;
+            --shadow-sm: 0 8px 20px rgba(0,0,0,0.3);
+            --shadow-md: 0 12px 28px rgba(0,0,0,0.4);
+            --border-radius-card: 24px;
             --transition: all 0.3s ease;
         }
 
         body {
-            background: var(--off-white);
+            background: var(--dark-bg);
             font-family: 'Inter', 'Poppins', sans-serif;
-            color: #2c2c2c;
+            color: #e8e2d4;
             scroll-behavior: smooth;
         }
 
         .gold-divider {
             width: 80px;
             height: 3px;
-            background: linear-gradient(90deg, var(--gold), #f5d76e);
+            background: linear-gradient(90deg, var(--gold), var(--light-gold));
             margin: 12px auto 20px;
             border-radius: 3px;
         }
@@ -46,41 +47,48 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--dark-red);
+            color: var(--gold);
             position: relative;
             display: inline-block;
         }
         .section-title span {
-            color: var(--gold);
+            color: var(--light-gold);
         }
 
         /* HERO SECTION */
         .hero {
-            background: linear-gradient(135deg, rgba(255,255,245,0.96), rgba(255,250,235,0.98)), url('https://images.pexels.com/photos/67468/indian-food-platter-thali-served-67468.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center/cover;
+            background: linear-gradient(135deg, rgba(10,8,6,0.95), rgba(26,22,18,0.98)), url('https://images.pexels.com/photos/67468/indian-food-platter-thali-served-67468.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center/cover;
             background-blend-mode: overlay;
-            padding: 2rem 1.5rem 3rem;
+            padding: 2.5rem 1.5rem 3rem;
             text-align: center;
-            border-bottom: 4px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
         }
         .rudra-logo h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #8B1E1E, #B86B2C);
+            background: linear-gradient(135deg, var(--gold), #FFD700);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            letter-spacing: 1px;
+        }
+        .rudra-logo h1:last-child {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #c9a03d, var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
         }
         .tagline {
             font-size: 1.2rem;
-            color: #5a2e1c;
-            margin: 8px 0;
+            color: var(--light-gold);
+            margin: 12px 0;
             font-weight: 500;
         }
         .tagline marathi-text {
             font-size: 1.3rem;
             font-weight: 600;
-            color: var(--dark-red);
+            color: var(--gold);
         }
         .hero-buttons {
             display: flex;
@@ -105,12 +113,12 @@
             color: white;
         }
         .btn-call {
-            background: var(--dark-red);
-            color: white;
+            background: var(--gold);
+            color: #1a1a1a;
         }
         .btn-wa:hover, .btn-call:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            filter: brightness(1.05);
         }
 
         /* Sticky Category Nav */
@@ -118,10 +126,9 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: white;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+            background: rgba(10,8,6,0.98);
+            backdrop-filter: blur(8px);
             padding: 12px 16px;
-            background: rgba(255,255,245,0.98);
             border-bottom: 1px solid rgba(212,175,55,0.3);
         }
         .categories-scroll {
@@ -134,15 +141,23 @@
         .categories-scroll::-webkit-scrollbar {
             height: 4px;
         }
+        .categories-scroll::-webkit-scrollbar-track {
+            background: #2a251f;
+            border-radius: 10px;
+        }
+        .categories-scroll::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
         .cat-btn {
             background: transparent;
-            border: 1px solid #e2cfaa;
+            border: 1px solid rgba(212,175,55,0.4);
             padding: 8px 18px;
             border-radius: 60px;
             font-weight: 600;
             font-size: 0.85rem;
             white-space: nowrap;
-            color: #4a2a1a;
+            color: #e8e2d4;
             transition: var(--transition);
             cursor: pointer;
         }
@@ -151,63 +166,61 @@
             color: var(--gold);
         }
         .cat-btn.active {
-            background: var(--dark-red);
-            border-color: var(--dark-red);
-            color: white;
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #0a0806;
         }
         .cat-btn.active i {
-            color: white;
+            color: #0a0806;
         }
 
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 20px 20px 40px;
+            padding: 30px 20px 50px;
         }
         .menu-section {
-            margin-bottom: 48px;
+            margin-bottom: 55px;
             scroll-margin-top: 90px;
         }
         .menu-section h2 {
-            font-size: 1.9rem;
+            font-size: 2rem;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             border-left: 5px solid var(--gold);
-            padding-left: 18px;
-            margin-bottom: 24px;
-            color: var(--deep-burgundy);
+            padding-left: 20px;
+            margin-bottom: 28px;
+            color: var(--gold);
         }
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 24px;
+            gap: 25px;
         }
         .menu-card {
-            background: white;
+            background: var(--pure-white);
             border-radius: var(--border-radius-card);
-            padding: 16px;
+            padding: 0;
+            overflow: hidden;
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
-            border: 1px solid #f3e5cd;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+            border: 1px solid rgba(212,175,55,0.2);
         }
         .menu-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-md);
             border-color: rgba(212,175,55,0.6);
         }
         .menu-img {
             width: 100%;
-            height: 220px;
-            border-radius: 18px;
+            height: 230px;
             object-fit: cover;
-            background: #faf3e0;
-            border: 1px solid #f0e0c0;
+            background: #f5f0e6;
+            border-bottom: 2px solid var(--gold);
         }
         .card-content {
-            flex: 1;
+            padding: 16px 18px 20px;
+            background: var(--pure-white);
         }
         .dish-name {
             font-weight: 700;
@@ -217,28 +230,32 @@
             align-items: baseline;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
         }
         .dish-name span:first-child {
             font-family: 'Playfair Display', serif;
+            color: #2c2418;
         }
         .dish-desc {
             font-size: 0.8rem;
-            color: #6f6f6f;
+            color: #6b6256;
             margin-top: 5px;
             display: flex;
             gap: 8px;
             align-items: center;
             flex-wrap: wrap;
         }
-        .veg-badge, .nonveg-badge {
+        .veg-badge {
             font-size: 0.7rem;
-            background: #eaf7ea;
+            background: #e8f5e9;
             padding: 2px 10px;
             border-radius: 20px;
-            color: #2b6e2b;
+            color: #2e7d32;
+            font-weight: 500;
         }
 
+        /* Gallery & Reviews */
         .gallery-section, .reviews-section, .inquiry-section {
             margin: 60px 0 40px;
         }
@@ -252,40 +269,70 @@
             width: 220px;
             height: 160px;
             object-fit: cover;
-            border-radius: 24px;
+            border-radius: 20px;
             box-shadow: var(--shadow-sm);
+            border: 2px solid rgba(212,175,55,0.4);
+            transition: 0.2s;
+        }
+        .gallery-grid img:hover {
+            border-color: var(--gold);
+            transform: scale(1.02);
         }
         .review-card {
-            background: white;
+            background: var(--dark-surface);
             padding: 20px;
             border-radius: 28px;
             box-shadow: var(--shadow-sm);
             border-left: 5px solid var(--gold);
             min-width: 260px;
+            color: #e8e2d4;
+        }
+        .review-card p {
+            margin: 10px 0;
+            color: #d4cfc5;
+        }
+        .review-card i.fa-star {
+            color: var(--gold);
         }
         .inquiry-form input, .inquiry-form textarea {
             width: 100%;
-            padding: 14px;
-            margin: 8px 0;
+            padding: 14px 18px;
+            margin: 10px 0;
             border-radius: 30px;
-            border: 1px solid #e6d5b8;
-            background: white;
+            border: 1px solid rgba(212,175,55,0.3);
+            background: var(--dark-surface);
+            color: #e8e2d4;
+            font-size: 1rem;
+        }
+        .inquiry-form input::placeholder, .inquiry-form textarea::placeholder {
+            color: #9a9284;
+        }
+        .inquiry-form input:focus, .inquiry-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(212,175,55,0.2);
         }
         .inquiry-form button {
-            background: var(--dark-red);
-            color: white;
+            background: var(--gold);
+            color: #0a0806;
             border: none;
-            padding: 12px 28px;
+            padding: 12px 32px;
             border-radius: 40px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
+            transition: 0.2s;
+        }
+        .inquiry-form button:hover {
+            background: #c9a03d;
+            transform: scale(1.02);
         }
         footer {
-            background: #1e1b16;
-            color: #e4d5b0;
+            background: #050403;
+            color: #b8aa8c;
             padding: 32px 20px;
             text-align: center;
             margin-top: 40px;
+            border-top: 1px solid rgba(212,175,55,0.3);
         }
         .floating-wa {
             position: fixed;
@@ -298,8 +345,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
             z-index: 99;
+            transition: 0.2s;
+        }
+        .floating-wa:hover {
+            transform: scale(1.08);
         }
         .floating-wa a {
             color: white;
@@ -315,6 +366,9 @@
             .menu-img {
                 height: 200px;
             }
+            .section-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -327,7 +381,7 @@
 <div class="hero">
     <div class="rudra-logo">
         <h1>रुद्र कॅटरिंग</h1>
-        <h1 style="font-size:1.6rem; letter-spacing:2px;">RUDRA CATERING</h1>
+        <h1>RUDRA CATERING</h1>
     </div>
     <div class="tagline">
         <marathi-text>✨ स्वाद परंपरेचा... विश्वास गुणवत्तेचा ✨</marathi-text>
@@ -358,15 +412,15 @@
     <div class="reviews-section">
         <div style="text-align:center;"><span class="section-title">ग्राहक <span>प्रतिसाद</span></span><div class="gold-divider"></div></div>
         <div style="display:flex; gap:20px; overflow-x:auto; padding: 10px 0;">
-            <div class="review-card"><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star"></i><p>"अप्रतिम मेन्यू! हळदीच्या जेवणात खूप वैविध्य."</p><b>- श्री. पाटील</b></div>
-            <div class="review-card"><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star"></i><p>"लग्नात रुद्र कॅटरिंग मस्त अनुभव, स्वादिष्ट भात-वरण."</p><b>- सौ. जोशी</b></div>
-            <div class="review-card"><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star" style="color:gold"></i><i class="fas fa-star"></i><p>"पुरी, सुकी भाजी आणि गुलाबजाम खास."</p><b>- कुलकर्णी फॅमिली</b></div>
+            <div class="review-card"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><p>"अप्रतिम मेन्यू! हळदीच्या जेवणात खूप वैविध्य."</p><b>- श्री. पाटील</b></div>
+            <div class="review-card"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><p>"लग्नात रुद्र कॅटरिंग मस्त अनुभव, स्वादिष्ट भात-वरण."</p><b>- सौ. जोशी</b></div>
+            <div class="review-card"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><p>"पुरी, सुकी भाजी आणि गुलाबजाम खास."</p><b>- कुलकर्णी फॅमिली</b></div>
         </div>
     </div>
 
     <div class="inquiry-section">
         <div style="text-align:center;"><span class="section-title">बुकिंग <span>किंवा विचारा</span></span><div class="gold-divider"></div></div>
-        <div class="inquiry-form" style="max-width:600px; margin:0 auto; background:#fff9ef; padding:25px; border-radius:40px;">
+        <div class="inquiry-form" style="max-width:600px; margin:0 auto; background:rgba(26,22,18,0.7); padding:28px; border-radius:40px; backdrop-filter:blur(4px);">
             <input type="text" placeholder="आपले नाव / Name" id="inqName">
             <input type="tel" placeholder="मोबाईल नंबर" id="inqMobile">
             <textarea rows="3" placeholder="तुमचा संदेश (मेन्यू किंवा इव्हेंट तपशील)" id="inqMsg"></textarea>
@@ -383,7 +437,6 @@
 </footer>
 
 <script>
-    // ALL MENU ITEMS - PRICES REMOVED, ONLY NAME, DESCRIPTION, IMAGE
     const menuData = {
         "हळदीचे जेवण": [
             { name: "रवा शिरा (पायनॅपल)", desc: "शिरा अननस फ्लेवर", img: "img/rava-shira.jpg", type: "Veg" },
@@ -484,7 +537,7 @@
         for(let cat of categories) {
             const items = menuData[cat];
             html += `<div class="menu-section" id="section-${cat}">`;
-            html += `<h2><i class="fas fa-leaf" style="color:var(--gold); margin-right:8px;"></i> ${cat}</h2>`;
+            html += `<h2><i class="fas fa-crown" style="color:var(--gold); margin-right:12px;"></i> ${cat}</h2>`;
             html += `<div class="menu-grid">`;
             items.forEach(item => {
                 html += `
